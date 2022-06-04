@@ -1,7 +1,8 @@
 # List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
 tasks:
-  - init: echo 'init script' # runs during prebuild
-    command: echo 'start script'
+  - command: gp await-port 3000 && sleep 3 && gp preview $(gp url 3000)/examples/browser/demo.html
+  - init: npm install && npm install -g eslint
+    command: npm start
 
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:
