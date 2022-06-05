@@ -1,0 +1,19 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>Hello</h1>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+            <script>
+            //AJAX
+            axios.get('http://www.zerocho.con/api/get')
+                .then((result)=>{
+                console.log(result);
+                console.log(result.data);
+            })
+            .catch((error)=>{
+                console.error(error);
+            })
+        </script>
+        </body>
+</html>

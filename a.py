@@ -1,5 +1,0 @@
-import time
-
-print("hello")
-
-
