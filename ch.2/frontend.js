@@ -1,8 +1,6 @@
 (async ()=>{
     try{
-        const encode = encodeURIComponent("노드");
-        const result = await axios.get("https://www.zerocho.com/api/search/" + encode);
-        console.log("https://www.zerocho.com/api/search/" + encode)
+        const result = await axios.get("https://www.zerocho.com/api/get");
         console.log(result);
         console.log(result.data);
     }
