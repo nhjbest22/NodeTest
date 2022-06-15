@@ -16,8 +16,9 @@ const parseCookies =(cookie="")=>
     //{}으로 묶으면 항상 return 되지는 않음.
 
 http.createServer(async (req,res)=>{
-    console.log(parseCookies(req.headers.cookie));
     const cookies = parseCookies(req.headers.cookie);
+    //console.log("header", req.headers);
+    console.log(req.url);
     if(req.url.startsWith("/login")){
         const {query} = url.parse(req.url);
         const {name} = qs.parse(query);
@@ -26,6 +27,7 @@ http.createServer(async (req,res)=>{
         res.writeHead(302, {Location: '/','Set-Cookie':`name=${encodeURIComponent(name)}; Expires=${expires.toGMTString()}; HttpOnly; Path=/`,})
         res.end();
     }
+    //cookie가 존재할 때
     else if(cookies.name){
         res.writeHead(200,{'Content-Type': 'text/plain; charset=utf-8'});
         res.end(`${cookies.name}님 안녕하세요`);
