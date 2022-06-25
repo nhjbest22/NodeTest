@@ -26,7 +26,14 @@ http.createServer(async (req, res)=>{
             try{
                 const data = await fs.readFile(`.${req.url}`);
                 console.log(`url 요청 : ${req.url}`)
-                return res.end(data);
+                // if((req.url).endsWith("js")){
+                //     res.writeHead(200, {"Content-Type": "text/javascript; charset=utf-8"});
+                // }
+                // else if (req.url.endsWith("css")){
+                //     res.writeHead(200, {"Content-Type": "text/css; charset=utf-8"});
+                // }
+                res.write(data);
+                return res.end();
             }
             catch(err){
                 console.log("해당하는 url이 존재하지 않습니다.");

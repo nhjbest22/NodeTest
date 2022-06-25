@@ -1,10 +1,10 @@
 const fs = require("fs").promises;
 
 fs.readFile("./readme.txt")
-    .then((data)=>{
+    .then(data=>{
         console.log(data);
         console.log(data.toString());
     })
-    .catch((err)=>{
-        console.error(err);
+    .catch(error=>{
+        consol.error(error);
     })

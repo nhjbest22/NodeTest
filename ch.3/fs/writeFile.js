@@ -5,8 +5,9 @@ fs.writeFile("./writeme.txt", "글이 입력됩니다.")
         return fs.readFile("./writeme.txt");
     })
     .then((data)=>{
+        console.log(data);
         console.log(data.toString());
     })
-    .catch((err)=>{
+    .catch(err=>{
         console.error(err);
     })
