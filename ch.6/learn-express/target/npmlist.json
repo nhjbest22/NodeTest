@@ -1,0 +1,1 @@
+{"version":"0.0.1","name":"learn-express","dependencies":{"body-parser":{"version":"1.20.0"},"cookie-parser":{"version":"1.4.6"},"dotenv":{"version":"16.0.1"},"express-session":{"version":"1.17.3"},"express":{"version":"4.18.1"},"morgan":{"version":"1.10.0"},"multer":{"version":"1.4.5-lts.1"}}}
