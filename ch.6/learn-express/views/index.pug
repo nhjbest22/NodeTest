@@ -1,0 +1,112 @@
+doctype html
+html 
+    head 
+        title  = title 
+        link(rel='stylesheet', href='/stylesheets/style.css')
+
+<html>
+    <head>
+        <title>익스프레스</title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+    </head>
+</html>
+
+/////////////////////
+
+#login-button 
+.post-image 
+span#highlight 
+p.hidden.full
+
+<div id='login-button'></div>
+<div class='post-image'></div>
+<span id='highlight'></span>
+<p class='hidden full'></p>
+
+//////////////////////
+
+p Welcome to Express 
+button(type='submit') 전송
+
+<p>Welcome to Express</p>
+<button type='submit'>전송</button>
+
+///////////////////////////////
+
+p 
+    | 안녕하세요
+    | 여러 줄을 입력합니다.
+    br
+    | 태그도 중간에 넣을 수 있습니다.
+<p>
+    안녕하세요 여러줄을 입력합니다.
+    <br/>
+    태그도 중간에 넣을 수 있습니다.
+</p>
+
+style.
+    h1 {
+        font-szie: 30px;
+    }
+script.
+    const message = 'Pug';
+    alert(message);
+
+<style>
+    h1{
+        font-size: 30px;
+    }
+</style>
+<script>
+    const message = 'Pug';
+    alert(message);
+</script>
+
+///////////////////////////
+
+//res.render('index', {title:'Express'})
+h1= title 
+p Welcome to #{title}
+button (class=title, type='submit') 전송
+input(placeholder=title + '연습')
+
+<h1>Express</h1>
+<p>Welcome to Express</p>
+<button class='Express' type='submit'>전송</button>
+<input placeholder='Express 연습'/>
+
+////////////////////////////////
+
+- const node = 'Node js'
+- const js = 'Javascript'
+p #{node}와 #{js}
+
+<p>Node js와 Javascript</p>
+
+//////////////////////////////////
+
+ul
+    each fruit in ['사과', '배', '오렌지', '바나나', '복숭아']
+    li = fruit
+
+<ul>
+    <li>사과</li>
+    <li>배</li>
+    <li>오렌지</li>
+    <li>바나나</li>
+    <li>복숭아</li>
+</ul>
+
+////////////////////////////////
+
+ul 
+    each fruit, index in ['사과', '배', '오렌지', '바나나', '복숭아']
+    li = (index+1) + '번째 ' + fruit
+
+<ul>
+    <li>1번째 사과</li>
+    <li>2번째 배</li>
+    <li>3번째 오렌지</li>
+    <li>4번째 바나나</li>
+    <li>5번째 복숭아</li>
+</ul>
