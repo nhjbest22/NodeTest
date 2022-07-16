@@ -1,0 +1,72 @@
+<h1>{{title}}</h1> {# 변수는 {{}}로 감쌉니다. #}
+<p>Welcome to {{title}}</p>
+<button class="{{title}}" type="submit">전송</button>
+<input placeholder="{{title}} 연습" />
+
+<h1>Expres</h1>
+<p>Welcome to Expres</p>
+<button class = "Express" type = "submit">전송</button>
+<input placeholder="Expres 연습" />
+
+///////////////////////////////////////////////////////////
+
+{% set node = "Node.js" %}
+{% set js = 'Javascript' %}
+<p>{{node}}와 {{js}}</p>
+
+<p>"Node.js와 Javascript"</p>
+
+///////////////////////////////////////////////////////////////
+
+<ul>
+    {% set fruits = ['사과', '배', '오렌지', '바나나', '복숭아']%};
+    {% for item in fruits %}
+    <li>{{item}}</li>
+    {%endfor%}
+</ul>
+
+<ul>
+    <li>사과</li>
+    <li>배</li>
+    <li>오렌지</li>
+    <li>바나나</li>
+    <li>복숭아</li>
+</ul>
+
+
+<ul>
+    {% set fruits = ['사과', '배', '오렌지', '바나나', '복숭아']%};
+    {% for item in fruits %}
+    <li>{{loop.index}}번째 {{item}}</li>
+    {%endfor%}
+</ul>
+
+<ul>
+    <li>1번째 사과</li>
+    <li>2번째 배</li>
+    <li>3번째 오렌지</li>
+    <li>4번째 바나나</li>
+    <li>5번째 복숭아</li>
+</ul>
+
+//////////////////////////////////////////////////////////
+
+{% if isLoggedIn %} {# if 문 시작 #}
+<div>로그인 되었습니다.</div>
+{% else %} {# else 문 #}
+<div>로그인이 필요합니다.</div>
+{% endif %} {# if 문 끝 #}
+
+////////////////////////////////////////////////////////
+{% if fruit === 'apple' %}
+<p>사과입니다.</p>
+{% elif fruit === 'banana' %}
+<p>바나나입니다.</p>
+{% elif fruit === 'orange' %}
+<p>오렌지입니다.</p>
+{% else %}
+<p>사과도 바나나도 오렌지도 아닙니다.</p>
+{% endif %}
+
+<div>{{'참' if isLoggedIn else '거짓'}}</div>
+
