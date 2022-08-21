@@ -5,7 +5,10 @@ const nunjucks = require('nunjucks');
 
 const {sequelize} = require('./models');
 const {User} = require('./models');
-const { Op, where } = require('sequelize');
+
+const indexRouter = require('./routes/index');
+const userRouter = require('./routes/users');
+const commentRouter = require('./routes/comments');
 
 const app = express();
 app.set('port', process.env.PORT || 3100);
@@ -15,34 +18,22 @@ nunjucks.configure('views',{
     watch:true,
 });
 
-sequelize.sync({force:false,})
+sequelize.sync({force:false})
     .then(()=>{
         console.log('데이터베이스 연결 성공');
     })
     .catch((err)=>{
         console.error(err);
     })
-User.findAll({
-    attributes: ['name', 'married', 'age'],
-    order: [['age', 'ASC']],
-})
-    .then((result)=>{
-        for (let data of result){
-            console.log(data.dataValues);
-        }
-    })
-    .catch((err)=>{
-        console.error(err);
-    })
 
-User.destroy({
-    where: {id:10},
-})
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 
+app.use('/', indexRouter);
+app.use('/users', userRouter);
+app.use('/comments', commentRouter);
 app.use((req, res, next)=>{
     const error = new Error(`${req.method} ${req.url} 라우터가 없습니다.`);
     error.status = 404;

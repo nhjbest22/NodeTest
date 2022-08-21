@@ -5,6 +5,10 @@ const birds = require("./birds");
 
 app.use("/birds", birds);
 
+
+app.get('/', (req, res, next)=>{
+    res.send('Good');
+})
 app.route("/book")
     .get((req, res)=>{
         res.send("Get a random book");
@@ -16,4 +20,6 @@ app.route("/book")
         res.send("Update the book");
     });
 
-ap.readFileSync
+app.listen(8080, ()=>{
+    console.log("port open")
+});

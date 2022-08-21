@@ -9,7 +9,7 @@ document.querySelectorAll('#user-list tr').forEach((el)=>{
 //사용자 로딩
 async function getUser(){
     try{
-        const res = axios.get('/users');
+        const res = await axios.get('/users');
         const users = res.data;
         console.log(users);
         const tbody = document.querySelector('#user-list tbody');
@@ -57,6 +57,7 @@ async function getComment(id){
             td.textContent = comment.comment;
             row.appendChild(td);
             const edit = document.createElement('button');
+            edit.textContent = '수정';
             edit.addEventListener('click', async ()=>{
                 const newComment = prompt('바꿀 내용을 입력하세요.');
                 if(!newComment){
@@ -126,7 +127,7 @@ document.getElementById('comment-form').addEventListener('submit', async(e)=>{
         return alert("댓글을 입력하세요");
     }
     try{
-        axios.post('/comments', {id,comment});
+        await axios.post('/comments', {id,comment});
         getComment(id);
     }catch(err){
         console.error(err);
